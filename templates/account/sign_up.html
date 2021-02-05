@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+{% block title %} Sign up {% endblock %}
+{% block css %}
+<style>
+    .sign-up{
+        width: 425px;
+        border: 1px solid #ccc;
+        padding: 40px;
+    }
+    .login{
+        width: 425px;
+        border: 1px solid #ccc;
+        padding: 40px;
+    }
+</style>
+{% endblock %}
+{% block body %}
+{% if user.is_authenticated %}
+<h1>You are already logged in</h1>
+{% else %}
+<center>
+<div class="form-container">
+    <div class="sign-up">
+        <h4>Sign Up here</h4><br>
+        <form action="" method="POST">
+            {{form.as_p}}
+            {% csrf_token %}
+            <div class="d-flex justify-content-center mt-3 login_container">
+    <input class="btn login_btn btn btn-secondary" type="submit" value="Register Account">
+  </div>
+        </form>
+    </div>
+    <div class="login my-3">
+        <p>Have an account? <a href="{% url 'login' %}">Login here</a></p>
+    </div>
+</div>
+</center>
+{% endif %}
+
+{% endblock %}

@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{%block title %} Home {%endblock%}
+{% block css %}
+<style>
+    .col-sm-6 {
+        width: auto;
+        padding: 20px;
+    }
+</style>
+{% endblock %}
+{% block body %}
+<br/>
+<div class="blog-details" style="margin-left:80px;margin-right:80px;">
+    <h1>{{ blog.blog_title }}</h1>
+<small>By: {{ blog.user }}</small>
+<br/>
+<small>On: {{ blog.publish_date }}</small>
+<hr>
+<br/>
+{{ blog.blog_content|safe }}
+<br/>
+<br/>
+<a href="{% url 'home' %}" class="btn btn-secondary">Back</a>
+{% if user.is_authenticated %}
+{% if user.id == blog.user.id %}
+<a href = "{% url 'edit_blog' slug=blog.slug %}" class="btn btn-secondary">Edit</a>
+
+{% endif %}
+{% endif %}
+
+<div class="comments">
+    <div class="row">
+        <div class="col-sm-5 py-5">
+            <h4>Comments:</h4>
+            {% for comment in video.video_comment.all %}
+            <p><img src="/media/{{comment.user.profile.profile_picture}}" alt="" width="23px" height="23px"
+                class="rounded-circle"><strong>{{comment.user.username}}</strong> &nbsp; {{comment}}</p>
+            {% endfor %}
+        </div>
+        <div class="col-sm-7 py-5">
+            <form action="" method="POST">
+                {{form|crispy}}
+                {% csrf_token %}
+                <button type="submit" class="btn btn-primary btn-sm">Comment</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

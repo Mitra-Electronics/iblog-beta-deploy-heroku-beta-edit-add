@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% block title %}
+    Edit blog
+{% endblock %}
+{% block css %}
+<style>
+    .upload-video{
+        width: 725px;
+        border: 1px solid #ccc;
+        padding: 40px;
+    }
+</style>
+{% endblock %}
+{% block body %}
+{% if user.is_authenticated %}
+{% if user.id == blog.user.id %}
+<br/>
+<div class="container">
+<div class='upload-video'>
+    <h4>Upload your content</h4>
+    <form method="POST" enctype="multipart/form-data">
+        {{form.media}}
+      {{ form|crispy}}
+      {% csrf_token %}
+        <br/>
+      <button type="submit" style="width:100%" class="btn btn-success btn-sm">Upload</button>
+    </form>
+  </div>
+</div>
+{% else %}
+<br/>
+    <h1>You are not the correct user</h1>
+{% endif %}
+{% else %}
+<br/>
+    <h1>Please sign in to edit your blog</h1>
+{% endif %}
+{% endblock %}

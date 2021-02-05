@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{%block title %} Profile {%endblock%}
+
+{% block body %}
+
+<!-- user profile section -->
+<div class="container">
+<div class="row">
+    <div class="col-sm-4">
+        {% if user.profile.profile_picture %}
+        <img src="/media/{{user.profile.profile_picture}}" alt="" width="250px" height="250px"
+            class="rounded-circle">
+        {% else %}
+        <img src="/static/images/unisex_avatar.jpg" width="250px" height="250px" class="rounded-circle" alt="default">
+        {% endif %}
+    </div>
+    <div class="col-sm-8"><br><br>
+        <strong>Full name: </strong>{{user.profile.fullname}} <br>
+        <strong>User name: </strong>{{user.username}} <br>
+        <strong>Email address: </strong> {{user.email}} <br>
+        <strong>Website: </strong><a href="{{user.profile.website}}">Click here to visit</a><br>
+        <strong>About: </strong>{{user.profile.about}} <br><br>
+        <a href="{% url 'edit_profile' %}" class="btn btn-info btn-sm">Edit profile</a>
+    </div>
+</div><hr>
+    </div>
+
+
+<!-- user video section -->
+
+
+{% endblock %}

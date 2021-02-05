@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% block title %} Edit profile {% endblock %}
+{% block css %}
+<style>
+    .edit-profile{
+        width: 725px;
+        border: 1px solid #ccc;
+        padding: 40px;
+    }
+</style>
+{% endblock %}
+{% block body %}
+{% if user.is_authenticated%}
+<div class="container" style='padding-top:20px'>
+<div class='edit-profile'>
+    <h5>Edit your profile</h5>
+    <form method="POST" enctype="multipart/form-data">
+      {{ form|crispy }}
+      {% csrf_token %}
+      <button type="submit" style="width:100%" class="btn btn-primary">Update</button>
+    </form>
+  </div>
+</div>
+{% else %}
+<h1>You are not logged in</h1>
+{% endif %}
+
+{% endblock %}
