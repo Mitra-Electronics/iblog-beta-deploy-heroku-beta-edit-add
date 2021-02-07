@@ -9,7 +9,7 @@ class UploadForm(forms.ModelForm):
         widgets = {
             "blog_title": forms.TextInput(attrs={"cols": 50, "rows": 10, 'class': "form-control"}),
             "blog_content": forms.Textarea(attrs={"cols": 50, "rows": 10, 'class':"form-control"}),
-            "thumbnail": forms.TextInput(attrs={"cols": 50, "rows": 10, 'class': "form-control"}),
+            "thumbnail": forms.URLInput(attrs={"cols": 50, "rows": 10, 'class': "form-control"}),
         }
 
 class CommentForm(forms.ModelForm):
