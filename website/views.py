@@ -61,7 +61,7 @@ def edit_blog(request, slug):
             #form = UploadForm(instance=Blog)
             return HttpResponseRedirect(reverse('home'))
 
-    return render(request, 'blog/upload_blog.html', {'form': form, 'edit': True})
+    return render(request, 'blog/edit_blog.html', {'form': form, 'edit': True})
 
 
 def services(request):
