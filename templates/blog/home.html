@@ -12,7 +12,20 @@
 {% block body %}
 <br/>
 <div class="container">
-<h3>Welcome to iBlog</h3>
+<section class="jumbotron text-center">
+    <div class="container">
+        <img src="/static/home/img/photo.png" alt="logo" width="120">
+        <h1 class="jumbotron-heading"><span id="typed"></span></h1>
+        <p class="lead text-muted">Confused on which course to take? I have got you covered. Browse courses and find out
+            the best course for you. Its free!<br>Code With Harry is my attempt to teach basics and those coding
+            techniques to people in short time which took me ages to learn.</p>
+        <p>
+            <a href="/blog" class="btn btn-danger my-2">Browse Blog</a>
+            <a href="/videos" class="btn btn-success my-2">Browse Video Tutorials</a>
+            <a href="/contact" class="btn btn-primary my-2">Contact Me</a>
+        </p>
+    </div>
+</section>
 {% if search %}
 {% for video in result %}
 <p><a href="{% url 'blog_details' slug=video.slug %}">{{blog.blog_title}}{{blog.blog}}</a></p>
@@ -33,5 +46,19 @@
     </div>
 </div>
 {% endif %}
+    <script>
+    window.onload = function () {
+        console.log("loaded")
+        var typed = new Typed('#typed', {
+            strings: ["Welcome to CodeWithHarry", "Learn Python", "Web development", "Data Science", "Machine Learning", "and other awesome programming concepts with me :)"],
+            backSpeed: 15,
+            smartBackspace: true,
+            backDelay: 1200,
+            startDelay: 1000,
+            typeSpeed: 25,
+            loop: true,
+        });
+    };
+</script>
     </div>
 {% endblock %}
