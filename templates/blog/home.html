@@ -12,11 +12,11 @@
 {% block body %}
 <br/>
 <div class="container">
+    {% if user.is_authenticated %}
+    {{user.id}}
+     {% else %}
 <section class="jumbotron text-center">
     <div class="container">
-        {% if user.is_authenticated %}
-        {{user.id}}
-        {% else %}
         <img src="https://lh3.googleusercontent.com/lmT7lmydO_lLhW3DtZbwoB4EgKQyo0Q_bXm5-nf1CaNwkuHNayf8a8orLfikLFR8xu85xjAq-PSKEqOy=s275-rw?pageId=101746887361253936386" alt="logo" width="120">
         <h1 class="jumbotron-heading"><span id="typed"></span></h1>
         <p class="lead text-muted">Confused on which course to take? I have got you covered. Browse courses and find out
