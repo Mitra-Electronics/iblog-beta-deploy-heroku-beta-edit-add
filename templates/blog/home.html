@@ -12,6 +12,8 @@
 {% block body %}
 <br/>
 <div class="container">
+    {% if user.is_authenticated %}
+    {% else %}
 <section class="jumbotron text-center">
     <div class="container">
         <img src="https://lh3.googleusercontent.com/lmT7lmydO_lLhW3DtZbwoB4EgKQyo0Q_bXm5-nf1CaNwkuHNayf8a8orLfikLFR8xu85xjAq-PSKEqOy=s275-rw?pageId=101746887361253936386" alt="logo" width="120">
@@ -20,10 +22,11 @@
             the best course for you. Its free!<br>MitraElectronics is my attempt to teach basics and those coding
             techniques to people in short time which took me ages to learn.</p>
         <p>
-            <a href="/start" class="btn btn-danger my-2">Get Started</a>
+            <a href="/sign_up" class="btn btn-danger my-2">Get Started</a>
         </p>
     </div>
 </section>
+    {% endif %}
 {% if search %}
 {% for video in result %}
 <p><a href="{% url 'blog_details' slug=video.slug %}">{{blog.blog_title}}{{blog.blog}}</a></p>
