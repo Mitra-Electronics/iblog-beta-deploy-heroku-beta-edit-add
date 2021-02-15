@@ -29,7 +29,14 @@
     {% endif %}
 {% if search %}
 {% for video in result %}
-<p><a href="{% url 'blog_details' slug=video.slug %}">{{blog.blog_title}}{{blog.blog}}</a></p>
+<div class="col-sm-6">
+            <a href="{% url 'blog_details' slug=video.slug %}"><img src="/media/{{video.thumbnail}}" alt="" width="425"><br></a>
+            <Strong>{{video.blog_title}}</Strong> <br>
+            <img src="/media/{{video.user.profile.profile_picture}}" alt="" width="23px" height="23px" class="rounded-circle">{{video.user.username}} <br>
+            <small class="text-muted"><strong>Publish date: </strong>{{video.publish_date}}</small><br>
+            <small class="text-muted"><strong>Updated on: </strong>{{video.update_date}}</small> <br>
+            <b>{{video.video_comment.count}} Comments</b>
+        </div>
 {% endfor %}
 {% else %}
     {% if user.is_authenticated %}
