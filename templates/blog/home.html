@@ -54,7 +54,7 @@
             <div class="card" style="width: 18rem;">
             <img src="="/media/{{video.thumbnail}}" alt="" width="425"" class="card-img-top">
             <div class="card-body">
-            <h5 class="card-title">{{video.blog_title}}</h5><small class="text-muted"><strong> by {{video.user.username}}<img src="/media/{{video.user.profile.profile_picture}}"></strong>
+            <h5 class="card-title">{{video.blog_title}}</h5><small class="text-muted"><strong> by {{video.user.username}}<img src="/media/{{video.user.profile.profile_picture}}" width="30px" height="30px"></strong>
             <p class="card-text">{{video.blog_description|slice:200}}</p>
             <a href="{% url 'blog_details' slug=video.slug %}" class="btn btn-primary">Read More</a>
             </div>
