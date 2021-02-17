@@ -36,7 +36,7 @@ def login_page(request):
             user = authenticate(username=username, password=password)
             if user is not None:
                 login(request, user)
-                return HttpResponseRedirect(reverse('profile'))
+                return HttpResponseRedirect(reverse('home'))
 
     return render(request, 'account/login.html', {'form': form})
 
