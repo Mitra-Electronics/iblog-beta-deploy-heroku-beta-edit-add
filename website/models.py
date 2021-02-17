@@ -13,7 +13,7 @@ class Blog(models.Model):
     slug = models.SlugField(max_length=255, unique=True)
     blog_content = RichTextField(max_length=10000, verbose_name='Put the description', blank=False, null=False)
     #blog_content = models.CharField()
-    thumbnail = models.URLField(blank=False)
+    thumbnail = models.ImageField(blank=False)
     publish_date = models.DateTimeField(auto_now_add=True)
     update_date = models.DateTimeField(auto_now=True)
 

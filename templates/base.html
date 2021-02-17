@@ -26,9 +26,9 @@
         <a class="nav-link" href="{% url 'home' %}">Home <span class="sr-only">({% block homeactive %}{% endblock %})</span></a>
       </li>
       {% if user.is_authenticated %}
-      <li class="nav-item">
+      <!--<li class="nav-item">
         <a class="nav-link" href="{% url 'upload_blog' %}">Post</a>
-      </li>
+      </li>-->
       {% else %}
       <li class="nav-item">
         <a class="nav-link" href="{% url 'login' %}">Login</a>
