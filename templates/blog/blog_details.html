@@ -22,12 +22,6 @@
 <br/>
 <br/>
 <a href="{% url 'home' %}" class="btn btn-secondary">Back</a>
-{% if user.is_authenticated %}
-{% if user.id == blog.user.id %}
-<a href = "{% url 'edit_blog' slug=blog.slug %}" class="btn btn-secondary">Edit</a>
-
-{% endif %}
-{% endif %}
 
 <div class="comments">
     <div class="row">
