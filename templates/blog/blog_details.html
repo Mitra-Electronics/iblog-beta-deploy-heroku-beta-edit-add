@@ -18,7 +18,7 @@
 <small>On: {{ blog.publish_date }}</small>
 <hr>
 <br/>
-{% extends {{blog.blog_content}} %}
+    {{blog.blog_content|safe}}
 <br/>
 <br/>
 <a href="{% url 'home' %}" class="btn btn-secondary">Back</a>
