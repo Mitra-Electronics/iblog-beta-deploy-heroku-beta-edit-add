@@ -11,7 +11,7 @@ class Blog(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='post_user')
     blog_title = models.CharField(max_length=255, verbose_name='Put a title')
     slug = models.SlugField(max_length=255, unique=True)
-    blog_content = models.FileField(blank=False, null=False)
+    blog_content = RichTextField(max_length=10000000, verbose_name='Put the description', blank=False, null=False)
     #blog_content = models.CharField()
     blog_snippet = models.TextField()
     thumbnail = models.ImageField(blank=False)
